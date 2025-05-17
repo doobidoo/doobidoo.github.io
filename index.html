@@ -3,699 +3,768 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heinrich Krupp - Technical Consultant & AI Developer</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Heinrich Krupp | Technical Consultant & AI Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --primary: #2a4494;
-            --secondary: #224870;
-            --accent: #4f97a3;
-            --light: #f8f9fa;
-            --dark: #343a40;
-            --success: #28a745;
-            --info: #17a2b8;
-            --warning: #ffc107;
-            --danger: #dc3545;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
         
         body {
-            line-height: 1.6;
-            color: #333;
-            background-color: #f4f4f4;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #0f172a;
+            color: #f8fafc;
         }
         
-        header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
         
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 0;
+        .card-hover {
+            transition: all 0.3s ease;
         }
         
-        .profile {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .profile-image {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid var(--light);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .profile-text {
-            max-width: 600px;
-        }
-        
-        .profile-text h1 {
-            margin-bottom: 0.5rem;
-            font-size: 2.5rem;
-        }
-        
-        .profile-text h2 {
-            color: var(--light);
-            font-weight: 300;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-        
-        .profile-text p {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            font-size: 1.5rem;
-        }
-        
-        .social-links a {
-            color: white;
-            transition: color 0.3s;
-        }
-        
-        .social-links a:hover {
-            color: var(--accent);
-        }
-        
-        section {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            padding: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        section h2 {
-            border-bottom: 2px solid var(--primary);
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-        }
-        
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .card {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .card:hover {
+        .card-hover:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
         }
         
-        .card-header {
-            background: var(--secondary);
-            color: white;
-            padding: 1rem;
-        }
-        
-        .card-header h3 {
-            margin-bottom: 0.5rem;
-        }
-        
-        .card-header p {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-        
-        .card-body {
-            padding: 1rem;
-        }
-        
-        .card-body p {
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-        }
-        
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-        
-        .tech {
-            background: var(--light);
-            border-radius: 20px;
-            padding: 0.3rem 0.8rem;
-            font-size: 0.8rem;
-            color: var(--dark);
-        }
-        
-        .card-footer {
-            background: #f8f9fa;
-            padding: 1rem;
-            border-top: 1px solid #ddd;
-            display: flex;
-            justify-content: flex-end;
-        }
-        
-        .btn {
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            font-weight: 500;
-            transition: background-color 0.3s;
-        }
-        
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-        }
-        
-        .btn-primary:hover {
-            background: var(--secondary);
-        }
-        
-        .skills {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .skill-category {
-            margin-bottom: 1.5rem;
-        }
-        
-        .skill-category h3 {
-            margin-bottom: 0.8rem;
-            color: var(--secondary);
-        }
-        
-        .skill-list {
-            list-style: none;
-        }
-        
-        .skill-list li {
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-        }
-        
-        .skill-list li i {
-            margin-right: 0.5rem;
-            color: var(--primary);
-        }
-        
-        .experience {
-            margin-bottom: 2rem;
-        }
-        
-        .experience-item {
-            margin-bottom: 1.5rem;
-            border-left: 3px solid var(--primary);
-            padding-left: 1.5rem;
+        .nav-link {
             position: relative;
         }
         
-        .experience-item::before {
+        .nav-link::after {
             content: '';
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background: var(--primary);
             position: absolute;
-            left: -9px;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .active-nav::after {
+            width: 100%;
+        }
+        
+        .hero-bg {
+            background: radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.1) 0%, rgba(0, 0, 0, 0) 50%),
+                        radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.1) 0%, rgba(0, 0, 0, 0) 50%);
+        }
+        
+        .skill-badge {
+            transition: all 0.3s ease;
+        }
+        
+        .skill-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+        
+        .project-card {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
             top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
         }
         
-        .experience-item h3 {
-            margin-bottom: 0.3rem;
-            font-size: 1.2rem;
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.1);
         }
         
-        .experience-item h4 {
-            color: var(--accent);
-            font-weight: 500;
-            margin-bottom: 0.3rem;
-            font-size: 1rem;
+        .contact-input {
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
         }
         
-        .experience-item p {
-            font-size: 0.95rem;
-            margin-bottom: 0.5rem;
+        .contact-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
         }
         
-        .experience-item .date {
-            color: #6c757d;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-        
-        .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-        
-        .contact-item {
-            flex: 1;
-            min-width: 200px;
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-        
-        .contact-item i {
-            font-size: 1.5rem;
-            margin-right: 1rem;
-            color: var(--primary);
-            width: 40px;
-            text-align: center;
-        }
-        
-        .contact-item div {
-            flex: 1;
-        }
-        
-        .contact-item h3 {
-            font-size: 1rem;
-            color: var(--dark);
-            margin-bottom: 0.3rem;
-        }
-        
-        .contact-item p {
-            font-size: 0.9rem;
-        }
-        
-        footer {
-            background: var(--dark);
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-        
-        footer p {
-            margin-bottom: 1rem;
-        }
-        
-        @media (max-width: 768px) {
-            .profile {
-                flex-direction: column;
-                text-align: center;
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
             }
-            
-            .social-links {
-                justify-content: center;
+            50% {
+                transform: translateY(-10px);
             }
-            
-            .cards {
-                grid-template-columns: 1fr;
-            }
-            
-            .skills {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-item {
-                flex: 100%;
-            }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
         }
     </style>
 </head>
-<body>
-    <header>
-        <div class="container">
-            <div class="profile">
-                <img src="https://avatars.githubusercontent.com/u/5000709?s=400&u=9d76b7bc57ad8c1e6ecb780cfb1431af0790619f&v=4" alt="Heinrich Krupp" class="profile-image">
-                <div class="profile-text">
-                    <h1>Heinrich Krupp</h1>
-                    <h2>Senior Technical Consultant | Data Integration & AI Engineer</h2>
-                    <p>Data Integration & Automation Specialist with 25+ years of experience. AI enthusiast building autonomous agent frameworks, memory solutions, and integration systems. Fluent in German and English, working globally.</p>
-                    <div class="social-links">
-                        <a href="https://github.com/doobidoo" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/heinrich-krupp-a94a205/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="mailto:henry.krupp@gmail.com"><i class="fas fa-envelope"></i></a>
+<body class="min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-slate-900/80 backdrop-blur-md z-50 border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-xl font-bold gradient-text">Heinrich Krupp</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-8">
+                        <a href="#home" class="nav-link text-slate-300 hover:text-white px-3 py-2 text-sm font-medium">Home</a>
+                        <a href="#about" class="nav-link text-slate-300 hover:text-white px-3 py-2 text-sm font-medium">About</a>
+                        <a href="#skills" class="nav-link text-slate-300 hover:text-white px-3 py-2 text-sm font-medium">Skills</a>
+                        <a href="#projects" class="nav-link text-slate-300 hover:text-white px-3 py-2 text-sm font-medium">Projects</a>
+                        <a href="#experience" class="nav-link text-slate-300 hover:text-white px-3 py-2 text-sm font-medium">Experience</a>
+                        <a href="#contact" class="nav-link text-slate-300 hover:text-white px-3 py-2 text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-slate-300 hover:text-white focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-slate-900/95 backdrop-blur-md">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white">Home</a>
+                <a href="#about" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white">About</a>
+                <a href="#skills" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white">Skills</a>
+                <a href="#projects" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white">Projects</a>
+                <a href="#experience" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white">Experience</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-medium text-slate-300 hover:text-white">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center pt-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm <span class="gradient-text">Heinrich</span></h1>
+                    <h2 class="text-2xl md:text-3xl font-medium text-slate-300 mb-6">Senior Technical Consultant | Data Integration & AI Engineer</h2>
+                    <p class="text-lg text-slate-400 mb-8 max-w-lg">
+                        Data Integration & Automation Specialist with 25+ years of experience. AI enthusiast building autonomous agent frameworks, memory solutions, and integration systems. Fluent in German and English, working globally.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#projects" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-md text-white font-medium hover:opacity-90 transition duration-300">
+                            View My Work
+                        </a>
+                        <a href="#contact" class="px-6 py-3 border border-slate-600 rounded-md text-white font-medium hover:bg-slate-800/50 transition duration-300">
+                            Contact Me
+                        </a>
+                    </div>
+                    <div class="mt-8 flex space-x-4">
+                        <a href="https://github.com/doobidoo" target="_blank" class="text-slate-400 hover:text-white transition duration-300">
+                            <i class="fab fa-github text-2xl"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/heinrich-krupp-a94a205/" target="_blank" class="text-slate-400 hover:text-white transition duration-300">
+                            <i class="fab fa-linkedin text-2xl"></i>
+                        </a>
+                        <a href="https://twitter.com/yourhandle" target="_blank" class="text-slate-400 hover:text-white transition duration-300">
+                            <i class="fab fa-twitter text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80">
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full opacity-20 blur-3xl"></div>
+                        <div class="relative rounded-full overflow-hidden border-4 border-slate-700 floating">
+                            <img src="https://avatars.githubusercontent.com/u/5000709?s=400&u=9d76b7bc57ad8c1e6ecb780cfb1431af0790619f&v=4" alt="Heinrich Krupp" class="w-full h-full object-cover">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </header>
-    
-    <div class="container">
-        <section id="featured-projects">
-            <h2>Featured Projects</h2>
-            <div class="cards">
-                <div class="card">
-                    <div class="card-header">
-                        <h3>MCP Memory Service</h3>
-                        <p>AI Memory System</p>
-                    </div>
-                    <div class="card-body">
-                        <p>An MCP server providing semantic memory and persistent storage capabilities for Claude Desktop using ChromaDB and sentence transformers. Enables long-term memory with semantic search for AI assistants.</p>
-                        <div class="tech-stack">
-                            <span class="tech">Python</span>
-                            <span class="tech">ChromaDB</span>
-                            <span class="tech">Sentence Transformers</span>
-                            <span class="tech">PyTorch</span>
-                            <span class="tech">Docker</span>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="https://github.com/doobidoo/mcp-memory-service" class="btn btn-primary" target="_blank">View Project</a>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-header">
-                        <h3>AgentNexus</h3>
-                        <p>AI Agent Framework</p>
-                    </div>
-                    <div class="card-body">
-                        <p>A TypeScript-based autonomous agent framework with modular systems for memory, planning, and tool integration. Features vector-based recall, multi-strategy planning, and extensible tools.</p>
-                        <div class="tech-stack">
-                            <span class="tech">TypeScript</span>
-                            <span class="tech">Next.js</span>
-                            <span class="tech">Vector DB</span>
-                            <span class="tech">LLM Integration</span>
-                            <span class="tech">AI Planning</span>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="https://github.com/doobidoo/AgentNexus" class="btn btn-primary" target="_blank">View Project</a>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Azure SFTP Automation</h3>
-                        <p>Cloud Infrastructure</p>
-                    </div>
-                    <div class="card-body">
-                        <p>Automated management system for Azure SFTP accounts using Terraform. Handles deployment, tracking, and lifecycle management with email notifications for account status changes.</p>
-                        <div class="tech-stack">
-                            <span class="tech">Python</span>
-                            <span class="tech">Terraform</span>
-                            <span class="tech">Azure</span>
-                            <span class="tech">SQLite</span>
-                            <span class="tech">SFTP</span>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="https://github.com/doobidoo/azure-sftp-automation" class="btn btn-primary" target="_blank">View Project</a>
-                    </div>
-                </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-slate-900">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4"><span class="gradient-text">About</span> Me</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-6"></div>
+                <p class="text-slate-400 max-w-2xl mx-auto">
+                    Get to know more about who I am and what I do
+                </p>
             </div>
-        </section>
-        
-        <section id="all-projects">
-            <h2>All Projects</h2>
-            <div class="cards">
-                <div class="card">
-                    <div class="card-header">
-                        <h3>MCP Memory Dashboard</h3>
-                        <p>Web UI for MCP Memory Service</p>
-                    </div>
-                    <div class="card-body">
-                        <p>A dashboard for the MCP Memory Service providing a visual interface to browse and manage AI memories stored in ChromaDB.</p>
-                        <div class="tech-stack">
-                            <span class="tech">JavaScript</span>
-                            <span class="tech">Web UI</span>
-                            <span class="tech">ChromaDB</span>
-                            <span class="tech">API Integration</span>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="https://github.com/doobidoo/mcp-memory-dashboard" class="btn btn-primary" target="_blank">View Project</a>
+            
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/3 flex justify-center">
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl opacity-20 blur-xl"></div>
+                        <img src="https://avatars.githubusercontent.com/u/5000709?s=400&u=9d76b7bc57ad8c1e6ecb780cfb1431af0790619f&v=4" alt="Heinrich Krupp" class="relative rounded-2xl w-full max-w-xs border-2 border-slate-700">
                     </div>
                 </div>
                 
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Claude Memory Context</h3>
-                        <p>Context Management</p>
-                    </div>
-                    <div class="card-body">
-                        <p>A utility to update Claude project instructions with context from your MCP memory service, enhancing AI's contextual awareness.</p>
-                        <div class="tech-stack">
-                            <span class="tech">Python</span>
-                            <span class="tech">MCP Integration</span>
-                            <span class="tech">Claude API</span>
+                <div class="md:w-2/3 mt-8 md:mt-0">
+                    <h3 class="text-2xl font-bold mb-6">Who am I?</h3>
+                    <p class="text-slate-400 mb-6">
+                        I'm a Senior Technical Consultant specializing in Data Integration and AI Engineering at Data Migration International AG in Switzerland. With over 25 years of experience in IT, I focus on developing semantic memory systems, autonomous agent frameworks, and SAP data migration solutions. I help global innovators overcome business and technical challenges during digital transformation.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-start">
+                            <div class="mr-4 mt-1">
+                                <div class="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center">
+                                    <i class="fas fa-code text-blue-500"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-2">Full Stack Development</h4>
+                                <p class="text-slate-400 text-sm">
+                                    Expertise in both frontend and backend development with modern frameworks and technologies.
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="https://github.com/doobidoo/claude-memory-context" class="btn btn-primary" target="_blank">View Project</a>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-header">
-                        <h3>ChatExporter</h3>
-                        <p>Browser Extension</p>
-                    </div>
-                    <div class="card-body">
-                        <p>Chrome extension for exporting ChatGPT and Claude conversations to Markdown format with clean, formatted output and automatic file naming.</p>
-                        <div class="tech-stack">
-                            <span class="tech">JavaScript</span>
-                            <span class="tech">Chrome Extension</span>
-                            <span class="tech">Markdown</span>
-                            <span class="tech">DOM Manipulation</span>
+                        
+                        <div class="flex items-start">
+                            <div class="mr-4 mt-1">
+                                <div class="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center">
+                                    <i class="fas fa-mobile-alt text-purple-500"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-2">Responsive Design</h4>
+                                <p class="text-slate-400 text-sm">
+                                    Creating applications that work seamlessly across all device sizes and platforms.
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="https://github.com/doobidoo/ChatExporter" class="btn btn-primary" target="_blank">View Project</a>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-header">
-                        <h3>iMacBrightness</h3>
-                        <p>Hardware Integration</p>
-                    </div>
-                    <div class="card-body">
-                        <p>iMac Display Brightness Control for Ubuntu using ESP32. Controls brightness on repurposed iMac displays used with Linux.</p>
-                        <div class="tech-stack">
-                            <span class="tech">ESP32</span>
-                            <span class="tech">Ubuntu</span>
-                            <span class="tech">Hardware</span>
-                            <span class="tech">Display Control</span>
+                        
+                        <div class="flex items-start">
+                            <div class="mr-4 mt-1">
+                                <div class="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
+                                    <i class="fas fa-rocket text-green-500"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-2">Performance Optimization</h4>
+                                <p class="text-slate-400 text-sm">
+                                    Focused on building fast, efficient applications with optimized code and assets.
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="https://github.com/doobidoo/iMacBrightness" class="btn btn-primary" target="_blank">View Project</a>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Outlook AI Agent</h3>
-                        <p>Email Automation</p>
-                    </div>
-                    <div class="card-body">
-                        <p>An AI-powered assistant that processes, analyzes, and organizes Outlook emails using artificial intelligence.</p>
-                        <div class="tech-stack">
-                            <span class="tech">Python</span>
-                            <span class="tech">Microsoft Graph API</span>
-                            <span class="tech">AI</span>
-                            <span class="tech">Email Processing</span>
+                        
+                        <div class="flex items-start">
+                            <div class="mr-4 mt-1">
+                                <div class="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center">
+                                    <i class="fas fa-lightbulb text-yellow-500"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-2">Problem Solving</h4>
+                                <p class="text-slate-400 text-sm">
+                                    Strong analytical skills to tackle complex challenges and find innovative solutions.
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="https://github.com/doobidoo/outlook-ai-agent" class="btn btn-primary" target="_blank">View Project</a>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-header">
-                        <h3>PayPal Currency Converter PRO</h3>
-                        <p>WooCommerce Plugin</p>
-                    </div>
-                    <div class="card-body">
-                        <p>WordPress plugin to convert any currency to allowed PayPal currencies for PayPal's Payment Gateway within WooCommerce.</p>
-                        <div class="tech-stack">
-                            <span class="tech">PHP</span>
-                            <span class="tech">WordPress</span>
-                            <span class="tech">WooCommerce</span>
-                            <span class="tech">PayPal API</span>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <a href="https://github.com/doobidoo/paypalcurrencyconverterpro-revamp" class="btn btn-primary" target="_blank">View Project</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="skills">
-            <h2>Skills & Technologies</h2>
-            <div class="skills">
-                <div>
-                    <div class="skill-category">
-                        <h3>Programming Languages</h3>
-                        <ul class="skill-list">
-                            <li><i class="fas fa-code"></i> Python</li>
-                            <li><i class="fas fa-code"></i> JavaScript/TypeScript</li>
-                            <li><i class="fas fa-code"></i> PHP</li>
-                            <li><i class="fas fa-code"></i> PowerShell</li>
-                            <li><i class="fas fa-code"></i> SQL</li>
-                        </ul>
                     </div>
                     
-                    <div class="skill-category">
-                        <h3>AI & Machine Learning</h3>
-                        <ul class="skill-list">
-                            <li><i class="fas fa-brain"></i> LLM Integration</li>
-                            <li><i class="fas fa-brain"></i> Vector Databases</li>
-                            <li><i class="fas fa-brain"></i> Embeddings</li>
-                            <li><i class="fas fa-brain"></i> Autonomous Agents</li>
-                            <li><i class="fas fa-brain"></i> Semantic Search</li>
-                        </ul>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-md text-white font-medium hover:opacity-90 transition duration-300">
+                            Contact Me
+                        </a>
+                        <a href="#" class="px-6 py-3 border border-slate-600 rounded-md text-white font-medium hover:bg-slate-800/50 transition duration-300">
+                            Download CV
+                        </a>
                     </div>
                 </div>
-                
-                <div>
-                    <div class="skill-category">
-                        <h3>Cloud & DevOps</h3>
-                        <ul class="skill-list">
-                            <li><i class="fas fa-cloud"></i> Azure</li>
-                            <li><i class="fas fa-cloud"></i> Terraform</li>
-                            <li><i class="fas fa-cloud"></i> Docker</li>
-                            <li><i class="fas fa-cloud"></i> CI/CD</li>
-                            <li><i class="fas fa-cloud"></i> Infrastructure as Code</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Data Integration</h3>
-                        <ul class="skill-list">
-                            <li><i class="fas fa-database"></i> ETL Processes</li>
-                            <li><i class="fas fa-database"></i> SAP Integration</li>
-                            <li><i class="fas fa-database"></i> Database Migration</li>
-                            <li><i class="fas fa-database"></i> API Development</li>
-                            <li><i class="fas fa-database"></i> Data Transformation</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div>
-                    <div class="skill-category">
-                        <h3>Web Development</h3>
-                        <ul class="skill-list">
-                            <li><i class="fas fa-laptop-code"></i> HTML/CSS</li>
-                            <li><i class="fas fa-laptop-code"></i> React/Next.js</li>
-                            <li><i class="fas fa-laptop-code"></i> WordPress</li>
-                            <li><i class="fas fa-laptop-code"></i> REST APIs</li>
-                            <li><i class="fas fa-laptop-code"></i> Browser Extensions</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Tools & Platforms</h3>
-                        <ul class="skill-list">
-                            <li><i class="fas fa-tools"></i> Git/GitHub</li>
-                            <li><i class="fas fa-tools"></i> JiVS IMP</li>
-                            <li><i class="fas fa-tools"></i> Obsidian</li>
-                            <li><i class="fas fa-tools"></i> ChromaDB</li>
-                            <li><i class="fas fa-tools"></i> Microsoft Graph API</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="experience">
-            <h2>Work Experience</h2>
-            <div class="experience">
-                <div class="experience-item">
-                    <h3>Senior Technical Consultant</h3>
-                    <h4>Data Migration International AG, Kreuzlingen, Switzerland</h4>
-                    <p>Working on SAP data migration, integration, and historization using JiVS IMP platform. Specialized in Data Transfer and Retention Management. Assisting global innovators in overcoming business and technical challenges during digital transformation.</p>
-                    <p class="date">2023 - Present</p>
-                </div>
-                
-                <div class="experience-item">
-                    <h3>AI Research & Development</h3>
-                    <h4>Independent Projects</h4>
-                    <p>Developing AI-powered tools including semantic memory systems, autonomous agent frameworks, and document processing solutions. Creating open-source projects to advance practical AI applications.</p>
-                    <p class="date">2022 - Present</p>
-                </div>
-                
-                <div class="experience-item">
-                    <h3>Technical Consultant & Integration Specialist</h3>
-                    <h4>Various Companies</h4>
-                    <p>Over 25 years of experience in IT with focus on data integration, automation, and system architecture. Worked on numerous enterprise projects involving data migration, system integration, and custom software development.</p>
-                    <p class="date">1998 - 2022</p>
-                </div>
-            </div>
-        </section>
-        
-        <section id="contact">
-            <h2>Contact</h2>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <h3>Email</h3>
-                        <p><a href="mailto:henry.krupp@gmail.com">contact@example.com</a></p>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <i class="fab fa-linkedin"></i>
-                    <div>
-                        <h3>LinkedIn</h3>
-                        <p><a href="https://www.linkedin.com/in/heinrich-krupp-a94a205/" target="_blank">heinrich-krupp-a94a205</a></p>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <i class="fab fa-github"></i>
-                    <div>
-                        <h3>GitHub</h3>
-                        <p><a href="https://github.com/doobidoo" target="_blank">doobidoo</a></p>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <h3>Location</h3>
-                        <p>Kreuzlingen, Switzerland</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-    
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Heinrich Krupp. All rights reserved.</p>
-            <div class="social-links">
-                <a href="https://github.com/doobidoo" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/heinrich-krupp-a94a205/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:henry.krupp@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
-    </footer>
-</body>
-</html>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-slate-800/50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">My <span class="gradient-text">Skills</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-6"></div>
+                <p class="text-slate-400 max-w-2xl mx-auto">
+                    The technologies and tools I work with
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Frontend Skills -->
+                <div class="bg-slate-900/70 rounded-xl p-6 border border-slate-700 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center mr-3">
+                            <i class="fas fa-laptop-code text-blue-500"></i>
+                        </div>
+                        <h3 class="font-bold">Frontend</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-sm">Python</span>
+                        <span class="skill-badge px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-sm">JavaScript/TypeScript</span>
+                        <span class="skill-badge px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-sm">React/Next.js</span>
+                        <span class="skill-badge px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-sm">HTML/CSS</span>
+                        <span class="skill-badge px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-sm">PHP</span>
+                        <span class="skill-badge px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-sm">PowerShell</span>
+                        <span class="skill-badge px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-sm">SQL</span>
+                    </div>
+                </div>
+                
+                <!-- Backend Skills -->
+                <div class="bg-slate-900/70 rounded-xl p-6 border border-slate-700 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center mr-3">
+                            <i class="fas fa-server text-purple-500"></i>
+                        </div>
+                        <h3 class="font-bold">Backend</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge px-3 py-1 bg-purple-500/10 text-purple-400 rounded-full text-sm">LLM Integration</span>
+                        <span class="skill-badge px-3 py-1 bg-purple-500/10 text-purple-400 rounded-full text-sm">Vector Databases</span>
+                        <span class="skill-badge px-3 py-1 bg-purple-500/10 text-purple-400 rounded-full text-sm">Embeddings</span>
+                        <span class="skill-badge px-3 py-1 bg-purple-500/10 text-purple-400 rounded-full text-sm">Autonomous Agents</span>
+                        <span class="skill-badge px-3 py-1 bg-purple-500/10 text-purple-400 rounded-full text-sm">Semantic Search</span>
+                        <span class="skill-badge px-3 py-1 bg-purple-500/10 text-purple-400 rounded-full text-sm">ChromaDB</span>
+                    </div>
+                </div>
+                
+                <!-- Database Skills -->
+                <div class="bg-slate-900/70 rounded-xl p-6 border border-slate-700 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center mr-3">
+                            <i class="fas fa-database text-green-500"></i>
+                        </div>
+                        <h3 class="font-bold">Database</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge px-3 py-1 bg-green-500/10 text-green-400 rounded-full text-sm">ETL Processes</span>
+                        <span class="skill-badge px-3 py-1 bg-green-500/10 text-green-400 rounded-full text-sm">SAP Integration</span>
+                        <span class="skill-badge px-3 py-1 bg-green-500/10 text-green-400 rounded-full text-sm">Database Migration</span>
+                        <span class="skill-badge px-3 py-1 bg-green-500/10 text-green-400 rounded-full text-sm">API Development</span>
+                        <span class="skill-badge px-3 py-1 bg-green-500/10 text-green-400 rounded-full text-sm">Data Transformation</span>
+                        <span class="skill-badge px-3 py-1 bg-green-500/10 text-green-400 rounded-full text-sm">JiVS IMP</span>
+                    </div>
+                </div>
+                
+                <!-- DevOps & Tools -->
+                <div class="bg-slate-900/70 rounded-xl p-6 border border-slate-700 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-yellow-500/20 flex items-center justify-center mr-3">
+                            <i class="fas fa-tools text-yellow-500"></i>
+                        </div>
+                        <h3 class="font-bold">DevOps & Tools</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge px-3 py-1 bg-yellow-500/10 text-yellow-400 rounded-full text-sm">Azure</span>
+                        <span class="skill-badge px-3 py-1 bg-yellow-500/10 text-yellow-400 rounded-full text-sm">Terraform</span>
+                        <span class="skill-badge px-3 py-1 bg-yellow-500/10 text-yellow-400 rounded-full text-sm">Docker</span>
+                        <span class="skill-badge px-3 py-1 bg-yellow-500/10 text-yellow-400 rounded-full text-sm">CI/CD</span>
+                        <span class="skill-badge px-3 py-1 bg-yellow-500/10 text-yellow-400 rounded-full text-sm">Git/GitHub</span>
+                        <span class="skill-badge px-3 py-1 bg-yellow-500/10 text-yellow-400 rounded-full text-sm">Infrastructure as Code</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-slate-900">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">My <span class="gradient-text">Projects</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-6"></div>
+                <p class="text-slate-400 max-w-2xl mx-auto">
+                    Some of my featured AI and integration projects
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1: MCP Memory Service -->
+                <div class="project-card rounded-xl overflow-hidden transition-all duration-300">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://private-user-images.githubusercontent.com/5000709/412553449-eab1f341-ca54-445c-905e-273cd9e89555.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDc0ODk1OTIsIm5iZiI6MTc0NzQ4OTI5MiwicGF0aCI6Ii81MDAwNzA5LzQxMjU1MzQ0OS1lYWIxZjM0MS1jYTU0LTQ0NWMtOTA1ZS0yNzNjZDllODk1NTUucG5nP1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9QUtJQVZDT0RZTFNBNTNQUUs0WkElMkYyMDI1MDUxNyUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNTA1MTdUMTM0MTMyWiZYLUFtei1FeHBpcmVzPTMwMCZYLUFtei1TaWduYXR1cmU9MzE1MWYwODE0ZmU0ZjM4YjdiZjI5OWY2NWMwODFhYmZhYmUwZTE3NTdlOGY3NDRmOWFlZWI1Njk1ZTBmMjU1NCZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QifQ.eyd0JlmQvGPkRSItR6kc6VCy-oUBYhNaquYXhXIg6ug" alt="MCP Memory Service" class="w-full h-full object-contain bg-slate-900 transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <h3 class="text-xl font-bold text-white">MCP Memory Service</h3>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs">Python</span>
+                                <span class="px-2 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs">ChromaDB</span>
+                                <span class="px-2 py-1 bg-green-500/20 text-green-400 rounded-full text-xs">Sentence Transformers</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-slate-400 mb-4">
+                            An MCP server providing semantic memory and persistent storage capabilities for Claude Desktop using ChromaDB and sentence transformers. Enables long-term memory with semantic search for AI assistants.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <a href="https://github.com/doobidoo/mcp-memory-service" class="text-blue-500 hover:text-blue-400 text-sm font-medium flex items-center">
+                                View Project <i class="fas fa-external-link-alt ml-2"></i>
+                            </a>
+                            <a href="https://github.com/doobidoo/mcp-memory-service" class="text-slate-400 hover:text-white">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2: AgentNexus -->
+                <div class="project-card rounded-xl overflow-hidden transition-all duration-300">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="AgentNexus" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <h3 class="text-xl font-bold text-white">AgentNexus</h3>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs">TypeScript</span>
+                                <span class="px-2 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs">Next.js</span>
+                                <span class="px-2 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-xs">AI Framework</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-slate-400 mb-4">
+                            A TypeScript-based autonomous agent framework with modular systems for memory, planning, and tool integration. Features vector-based recall, multi-strategy planning, and extensible tools.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <a href="https://github.com/doobidoo/AgentNexus" class="text-blue-500 hover:text-blue-400 text-sm font-medium flex items-center">
+                                View Project <i class="fas fa-external-link-alt ml-2"></i>
+                            </a>
+                            <a href="https://github.com/doobidoo/AgentNexus" class="text-slate-400 hover:text-white">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card rounded-xl overflow-hidden transition-all duration-300">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1620825937374-87fc7d6bddc2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Azure SFTP Automation" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <h3 class="text-xl font-bold text-white">Azure SFTP Automation</h3>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs">Python</span>
+                                <span class="px-2 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs">Terraform</span>
+                                <span class="px-2 py-1 bg-green-500/20 text-green-400 rounded-full text-xs">Azure</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-slate-400 mb-4">
+                            Automated management system for Azure SFTP accounts using Terraform. Handles deployment, tracking, and lifecycle management with email notifications for account status changes.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <a href="https://github.com/doobidoo/azure-sftp-automation" class="text-blue-500 hover:text-blue-400 text-sm font-medium flex items-center">
+                                View Project <i class="fas fa-external-link-alt ml-2"></i>
+                            </a>
+                            <a href="https://github.com/doobidoo/azure-sftp-automation" class="text-slate-400 hover:text-white">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+                <!-- Project 4: MCP Memory Dashboard -->
+                <div class="project-card rounded-xl overflow-hidden transition-all duration-300">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1468436139062-f60a71c5c892?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="MCP Memory Dashboard" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <h3 class="text-xl font-bold text-white">MCP Memory Dashboard</h3>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs">JavaScript</span>
+                                <span class="px-2 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs">Web UI</span>
+                                <span class="px-2 py-1 bg-green-500/20 text-green-400 rounded-full text-xs">ChromaDB</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-slate-400 mb-4">
+                            A dashboard for the MCP Memory Service providing a visual interface to browse and manage AI memories stored in ChromaDB.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <a href="https://github.com/doobidoo/mcp-memory-dashboard" class="text-blue-500 hover:text-blue-400 text-sm font-medium flex items-center">
+                                View Project <i class="fas fa-external-link-alt ml-2"></i>
+                            </a>
+                            <a href="https://github.com/doobidoo/mcp-memory-dashboard" class="text-slate-400 hover:text-white">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5: Claude Memory Context -->
+                <div class="project-card rounded-xl overflow-hidden transition-all duration-300">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80" alt="Claude Memory Context" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <h3 class="text-xl font-bold text-white">Claude Memory Context</h3>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs">Python</span>
+                                <span class="px-2 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs">MCP Integration</span>
+                                <span class="px-2 py-1 bg-green-500/20 text-green-400 rounded-full text-xs">Claude API</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-slate-400 mb-4">
+                            A utility to update Claude project instructions with context from your MCP memory service, enhancing AI's contextual awareness.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <a href="https://github.com/doobidoo/claude-memory-context" class="text-blue-500 hover:text-blue-400 text-sm font-medium flex items-center">
+                                View Project <i class="fas fa-external-link-alt ml-2"></i>
+                            </a>
+                            <a href="https://github.com/doobidoo/claude-memory-context" class="text-slate-400 hover:text-white">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6: ChatExporter -->
+                <div class="project-card rounded-xl overflow-hidden transition-all duration-300">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1592424002053-21f369ad7fdb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="ChatExporter" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <h3 class="text-xl font-bold text-white">ChatExporter</h3>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs">JavaScript</span>
+                                <span class="px-2 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs">Chrome Extension</span>
+                                <span class="px-2 py-1 bg-green-500/20 text-green-400 rounded-full text-xs">Markdown</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-slate-400 mb-4">
+                            Chrome extension for exporting ChatGPT and Claude conversations to Markdown format with clean, formatted output and automatic file naming.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <a href="https://github.com/doobidoo/ChatExporter" class="text-blue-500 hover:text-blue-400 text-sm font-medium flex items-center">
+                                View Project <i class="fas fa-external-link-alt ml-2"></i>
+                            </a>
+                            <a href="https://github.com/doobidoo/ChatExporter" class="text-slate-400 hover:text-white">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <a href="https://github.com/doobidoo" target="_blank" class="inline-flex items-center px-6 py-3 border border-slate-600 rounded-md text-white font-medium hover:bg-slate-800/50 transition duration-300">
+                    <i class="fab fa-github mr-2"></i> View More on GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-slate-800/50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Work <span class="gradient-text">Experience</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-6"></div>
+                <p class="text-slate-400 max-w-2xl mx-auto">
+                    My professional journey and achievements
+                </p>
+            </div>
+            
+            <div class="relative pl-8">
+                <div class="timeline">
+                    <!-- Experience 1 -->
+                    <div class="timeline-item relative pb-8">
+                        <div class="bg-slate-900/70 rounded-xl p-6 border border-slate-700">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                                <h3 class="text-xl font-bold">Senior Technical Consultant</h3>
+                                <span class="text-sm text-purple-400 bg-purple-500/20 px-3 py-1 rounded-full">2023 - Present</span>
+                            </div>
+                            <h4 class="text-blue-400 mb-2">Data Migration International AG, Switzerland</h4>
+                            <p class="text-slate-400 mb-4">
+                                Working on SAP data migration, integration, and historization using JiVS IMP platform. Specialized in Data Transfer and Retention Management. Assisting global innovators in overcoming business and technical challenges during digital transformation.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-blue-500/10 text-blue-400 rounded-full text-xs">SAP</span>
+                                <span class="px-2 py-1 bg-purple-500/10 text-purple-400 rounded-full text-xs">Data Migration</span>
+                                <span class="px-2 py-1 bg-green-500/10 text-green-400 rounded-full text-xs">JiVS IMP</span>
+                                <span class="px-2 py-1 bg-yellow-500/10 text-yellow-400 rounded-full text-xs">Retention Management</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Experience 2 -->
+                    <div class="timeline-item relative pb-8">
+                        <div class="bg-slate-900/70 rounded-xl p-6 border border-slate-700">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                                <h3 class="text-xl font-bold">AI Research & Development</h3>
+                                <span class="text-sm text-blue-400 bg-blue-500/20 px-3 py-1 rounded-full">2022 - Present</span>
+                            </div>
+                            <h4 class="text-blue-400 mb-2">Independent Projects</h4>
+                            <p class="text-slate-400 mb-4">
+                                Developing AI-powered tools including semantic memory systems, autonomous agent frameworks, and document processing solutions. Creating open-source projects to advance practical AI applications.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-blue-500/10 text-blue-400 rounded-full text-xs">Python</span>
+                                <span class="px-2 py-1 bg-purple-500/10 text-purple-400 rounded-full text-xs">TypeScript</span>
+                                <span class="px-2 py-1 bg-green-500/10 text-green-400 rounded-full text-xs">LLM Integration</span>
+                                <span class="px-2 py-1 bg-yellow-500/10 text-yellow-400 rounded-full text-xs">Vector Databases</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Experience 3 -->
+                    <div class="timeline-item relative">
+                        <div class="bg-slate-900/70 rounded-xl p-6 border border-slate-700">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                                <h3 class="text-xl font-bold">Technical Consultant & Integration Specialist</h3>
+                                <span class="text-sm text-green-400 bg-green-500/20 px-3 py-1 rounded-full">1998 - 2022</span>
+                            </div>
+                            <h4 class="text-blue-400 mb-2">Various Companies</h4>
+                            <p class="text-slate-400 mb-4">
+                                Over 25 years of experience in IT with focus on data integration, automation, and system architecture. Worked on numerous enterprise projects involving data migration, system integration, and custom software development.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-blue-500/10 text-blue-400 rounded-full text-xs">Data Integration</span>
+                                <span class="px-2 py-1 bg-purple-500/10 text-purple-400 rounded-full text-xs">System Architecture</span>
+                                <span class="px-2 py-1 bg-green-500/10 text-green-400 rounded-full text-xs">ETL</span>
+                                <span class="px-2 py-1 bg-yellow-500/10 text-yellow-400 rounded-full text-xs">Automation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-slate-900">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4"><span class="gradient-text">Contact</span> Me</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-6"></div>
+                <p class="text-slate-400 max-w-2xl mx-auto">
+                    Get in touch for collaborations or just to say hello!
+                </p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-slate-300 mb-2">Your Name</label>
+                                <input type="text" id="name" class="contact-input w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" placeholder="John Doe">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-slate-300 mb-2">Your Email</label>
+                                <input type="email" id="email" class="contact-input w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" placeholder="john@example.com">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-slate-300 mb-2">Subject</label>
+                            <input type="text" id="subject" class="contact-input w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" placeholder="Project Inquiry">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-slate-300 mb-2">Your Message</label>
+                            <textarea id="message" rows="5" class="contact-input w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" placeholder="Hello, I would like to talk about..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-md text-white font-medium hover:opacity-90 transition duration-300">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-slate-800/50 rounded-xl p-8 border border-slate-700 h-full">
+                        <h3 class="text-xl font-bold mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="mr-4 mt-1">
+                                    <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center">
+                                        <i class="fas fa-envelope text-blue-500"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-slate-300 mb-1">Email</h4>
+                                    <a href="mailto:henry.krupp@gmail.com" class="text-slate-400 hover:text-blue-400 transition duration-300">henry.krupp@gmail.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="mr-4 mt-1">
+                                    <div class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center">
+                                        <i class="fas fa-phone-alt text-purple-500"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-slate-300 mb-1">Phone</h4>
+                                    <a href="tel:+41765137677" class="text-slate-400 hover:text-purple-400 transition duration-300">+41 76 513 76 77</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="mr-4 mt-1">
+                                    <div class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center">
+                                        <i class="fas fa-map-marker-alt text-green-500"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-slate-300 mb-1">Location</h4>
+                                    <p class="text-slate-400">Kreuzlingen, Switzerland</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-10">
+                            <h4 class="font-medium text-slate-300 mb-4">Connect with me</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://github.com/doobidoo" target="_blank" class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-slate-300 hover:bg-blue-500 hover:text-white transition duration-300">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/heinrich-krupp-a94a205/" target="_blank" class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-slate-300 hover:bg-blue-600 hover:text-white transition duration-300">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://twitter.com/y_c_t_y_e" target="_blank" class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-slate-300 hover:bg-sky-500 hover:text-white transition duration-300">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="https://instagram.com/yourhandle" target="_blank" class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-slate-300 hover:bg-pink-600 hover:text-white transition duration-300">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                       
