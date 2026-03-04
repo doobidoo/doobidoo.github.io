@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git log:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nfeat: Overhaul portfolio with DevOps/Azure focus and latest projects\n\n- Update hero section to emphasize DevOps Engineer & Azure Cloud Architect role\n- Rewrite About section highlighting DMI work, Azure infrastructure, and iOS/watchOS dev\n- Replace generic skill cards with actual expertise: DevOps, Mobile Dev, AI, Enterprise\n- Reorganize Skills section into Cloud/DevOps, Mobile, AI/Memory, Enterprise, Programming\n- Add SecondBrain iOS/watchOS app and SHODH-Cloudflare Memory projects\n- Update Experience section with client projects (Helvetia, CKW, Bosch, Vetter) and hackathons\n- Fix social media links (correct Twitter handle, remove Instagram placeholder)\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git push:*)",
+      "Bash(git config:*)",
+      "Bash(git commit:*)",
+      "mcp__memory__store_memory",
+      "mcp__shodh-cloudflare__remember",
+      "mcp__memory__retrieve_memory",
+      "mcp__shodh-cloudflare__recall",
+      "Read(//Users/hkr/.claude/hooks/core/**)",
+      "Read(//Users/hkr/.claude/hooks/**)",
+      "Read(//Users/hkr/**)",
+      "Bash(cat:*)",
+      "Bash(gh auth:*)",
+      "Bash(gh gist create:*)",
+      "Bash(du:*)",
+      "Bash(file:*)",
+      "Bash(gh repo:*)",
+      "Bash(rtk proxy:*)"
+    ],
+    "deny": [],
+    "ask": []
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "fetch",
+    "notion-todo",
+    "memory"
+  ]
+}
